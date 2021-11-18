@@ -1,4 +1,6 @@
 <div class="container">
   <h1>Test google maps</h1>
-  <div #mapElement class="map"></div>
+  <google-map [options]="mapOptions">
+    <map-marker *ngFor="let marker of markers" [position]="marker.position"></map-marker>
+ </google-map>
 </div>
