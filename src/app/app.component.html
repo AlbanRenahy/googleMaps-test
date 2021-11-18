@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Test google maps</h1>
-  <google-map [options]="mapOptions">
-    <map-marker *ngFor="let marker of markers" [position]="marker.position"></map-marker>
+  <google-map height="500px"
+  width="700px" [options]="mapOptions" (mapClick)="addMarker($event)">
+    <map-marker class="marker" *ngFor="let marker of markers" [position]="marker.position" [icon]="marker.icon"></map-marker>
  </google-map>
 </div>
