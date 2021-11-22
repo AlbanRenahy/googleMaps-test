@@ -1,11 +1,12 @@
 <div class="container">
   <h1>Test google maps</h1>
-  <button class="btn btn-primary" >Message</button>
-  <!-- google-maps-demo.component.html -->
-  <google-map height="400px" width="750px" [center]="center" [zoom]="zoom" (mapClick)="addMarker($event)">
-    <map-transit-layer></map-transit-layer>
-    <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
-      (mapClick)="openInfoWindow(marker)"></map-marker>
+  <button class="btn btn-primary" (click)="transports = !transports" *ngIf="!transports">Afficher les transports</button>
+  <button class="btn btn-primary" (click)="transports = !transports" *ngIf="transports">Cacher les transports</button>
+    <google-map [options]="mapOptions">
+      <div *ngIf="transports">
+        <map-transit-layer></map-transit-layer>
+      </div>
+      <map-marker *ngFor="let marker of markers" [position]="marker.position" [icon]="marker.icon"></map-marker>
+   </google-map>
     <map-info-window>Info Window content</map-info-window>
-  </google-map>
 </div>

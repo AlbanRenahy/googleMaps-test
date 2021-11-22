@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { GoogleMapsModule } from '@angular/google-maps';
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
@@ -21,7 +21,9 @@ import { BrowserModule } from '@angular/platform-browser';
   exports: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+    GoogleMap
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
